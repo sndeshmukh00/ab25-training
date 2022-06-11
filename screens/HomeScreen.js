@@ -1,4 +1,5 @@
-import { StyleSheet, Text, Button, View, Image, TextInput, ScrollView } from 'react-native'
+import { StyleSheet, View, ScrollView } from 'react-native'
+import {useNavigation} from '@react-navigation/native';
 
 import React from 'react'
 import Header  from '../components/header'
@@ -10,12 +11,14 @@ import Sellers from '../components/sellers'
 import Brands from '../components/brands'
 
 
+
+
 const HomeScreen = () => {
     return (
         <View style={styles.container}>
            
                 <Header />
-                <ScrollView>
+            <ScrollView>
                 <Categories/>
                 <Arrival/>
                 <Latest/>

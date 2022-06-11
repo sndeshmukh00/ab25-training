@@ -1,12 +1,15 @@
-import { StyleSheet, Text, Button, View, Image, TextInput, ScrollView } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, Button, View, Image, ScrollView,TouchableOpacity } from 'react-native';
+import React from 'react';
 
-const Categories = () => {
+const Categories = ({navigation}) => {
     return (
+        
         <View>
             <View style={styles.shorts}>
                 <Text style={{ fontSize: 17, fontWeight: 'bold', marginLeft: 10, color: "midnightblue",}}>Categories</Text>
+               <TouchableOpacity onPress = { () => navigation.navigate("New")}>
                 <Text style={{ fontSize: 13, fontWeight: 'bold', marginRight: 10, color: "midnightblue",}}>View All</Text>
+                </TouchableOpacity>
             </View>
             <View style={{ flexDirection: "row" }}>
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -15,7 +18,7 @@ const Categories = () => {
                             <Image
                                 source={require("../assets/category/bed-sheets.png")}
 
-                                //resizeMode="contain"
+                                resizeMode="contain"
                                 style={{
                                     width: 50,
                                     height: 50,
@@ -37,7 +40,7 @@ const Categories = () => {
                             <Image
                                 source={require("../assets/category/adornment.png")}
 
-                                //resizeMode="contain"
+                                resizeMode="contain"
                                 style={{
                                     width: 50,
                                     height: 50,
@@ -57,7 +60,7 @@ const Categories = () => {
                             <Image
                                 source={require("../assets/category/air-mattress.png")}
 
-                                //resizeMode="contain"
+                                resizeMode="contain"
                                 style={{
                                     width: 50,
                                     height: 50,
