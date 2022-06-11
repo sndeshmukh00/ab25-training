@@ -4,14 +4,29 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
 import NewScreen from "../screens/NewScreen";
 
+
 const Stack = createNativeStackNavigator();
 
 const Stacks = () =>{
     return(
       
-        <Stack.Navigator initialRouteName='Home'>
-            <Stack.Screen name='Home' component={HomeScreen} />
-            <Stack.Screen name='New' component={NewScreen} />
+        <Stack.Navigator initialRouteName='Homee'>
+            <Stack.Screen 
+               name='Homee' 
+               component={HomeScreen}
+               options={{
+                    headerShown:false               
+               }
+
+               }
+                />
+            <Stack.Screen 
+                name='New' 
+                component={NewScreen} 
+                options={{
+                    title:"Shop By Category"
+                }}
+                />
         </Stack.Navigator>
         
     )

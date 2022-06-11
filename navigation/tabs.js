@@ -9,6 +9,7 @@ import HomeScreen from '../screens/HomeScreen'
 import MyOrdersScreen from '../screens/MyOrdersScreen'
 import MyProfileScreen from '../screens/MyProfileScreen'
 import NotifcationScreen from '../screens/NotifcationScreen'
+import Stacks from './stacks';
 
 const Tab  = createBottomTabNavigator();
 
@@ -26,7 +27,7 @@ const  Tabs = () => {
      }
      }}>
     
-        <Tab.Screen name="Home" component = {HomeScreen} options = {{
+        <Tab.Screen name="Home" component = {Stacks} options = {{
            tabBarIcon : ({focused})   => {
              return(
              <View style={{justifyContent:"center", alignItems:"center",}}>

@@ -8,8 +8,8 @@ const App = () => {
     return(
         
         <NavigationContainer>
-            {/* <Tabs/> */}
-            <Stack/>
+            <Tabs/> 
+            {/* <Stack/> */}
         </NavigationContainer>
         
     )
