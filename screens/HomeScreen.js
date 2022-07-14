@@ -1,8 +1,6 @@
 import { StyleSheet, View, ScrollView } from 'react-native'
-
-
 import React from 'react'
-import Header  from '../components/header'
+import Header from '../components/header'
 import Categories from '../components/categories'
 import Arrival from '../components/arrival'
 import Latest from '../components/latest'
@@ -13,18 +11,18 @@ import Brands from '../components/brands'
 
 
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
-           
-                <Header />
+
+            <Header navigation={navigation} />
             <ScrollView>
                 <Categories navigation={navigation} />
-                <Arrival/>
-                <Latest/>
-                <Bestsellers/>
-                <Sellers/>
-                <Brands/>
+                <Arrival />
+                <Latest />
+                <Bestsellers navigation={navigation} />
+                <Sellers navigation={navigation} />
+                <Brands navigation={navigation} />
             </ScrollView>
         </View>
     )

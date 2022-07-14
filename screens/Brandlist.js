@@ -1,14 +1,35 @@
 import { StyleSheet, Text, Button, View, Image } from 'react-native'
 import React from 'react';
 
-const NewScreen = () => {
+const Brandlist = () => {
     return (
-        <View >
+
+        <View>
             <View style={styles.shorts}>
-                <View >
+                <View>
                     <View style={styles.Border}>
                         <Image
-                            source={require("../assets/category/bed-sheets.png")}
+                            source={require("../assets/category/coyuchi.png")}
+
+                            resizeMode="contain"
+                            style={{
+                                width: 50,
+                                height: 50,
+                                marginTop: 12,
+                                marginLeft: 11,
+                            }}
+                        />
+
+                    </View>
+                    <Text numberOfLines={1}
+                        ellipsizeMode="tail" style={styles.ImageText}>
+                        Coyuchi
+                    </Text>
+                </View>
+                <View>
+                    <View style={styles.Border}>
+                        <Image
+                            source={require("../assets/category/parachute.png")}
 
                             resizeMode="contain"
                             style={{
@@ -24,14 +45,14 @@ const NewScreen = () => {
                         numberOfLines={1}
                         ellipsizeMode="tail"
                         style={styles.ImageText}>
-                        Bed Linen & Bedsheets
+                        Parachute
                     </Text>
                 </View>
+
                 <View>
                     <View style={styles.Border}>
                         <Image
-                            source={require("../assets/category/adornment.png")}
-
+                            source={require("../assets/category/brooklinen.jpeg")}
                             resizeMode="contain"
                             style={{
                                 width: 50,
@@ -43,55 +64,16 @@ const NewScreen = () => {
 
                     </View>
                     <Text style={styles.ImageText}>
-                        Carpet & Rugs
-                    </Text>
-                </View>
-
-                <View>
-                    <View style={styles.Border}>
-                        <Image
-                            source={require("../assets/category/air-mattress.png")}
-
-                            resizeMode="contain"
-                            style={{
-                                width: 50,
-                                height: 50,
-                                marginTop: 12,
-                                marginLeft: 11,
-                            }}
-                        />
-
-                    </View>
-                    <Text style={styles.ImageText}>
-                        Mattresses
+                        BrookLinen
                     </Text>
                 </View>
             </View>
+
             <View style={styles.shorts}>
                 <View>
                     <View style={styles.Border}>
                         <Image
-                            source={require("../assets/category/cushions.png")}
-
-                            //resizeMode="contain"
-                            style={{
-                                width: 50,
-                                height: 50,
-                                marginTop: 12,
-                                marginLeft: 11,
-                            }}
-                        />
-
-                    </View>
-                    <Text style={styles.ImageText}>
-                        Cushions
-                    </Text>
-                </View>
-
-                <View >
-                    <View style={styles.Border}>
-                        <Image
-                            source={require("../assets/category/hook.png")}
+                            source={require("../assets/category/sheridan.webp")}
 
                             resizeMode="contain"
                             style={{
@@ -107,39 +89,13 @@ const NewScreen = () => {
                         numberOfLines={1}
                         ellipsizeMode="tail"
                         style={styles.ImageText}>
-                        Hooks & Mounts
+                        Sheridan
                     </Text>
                 </View>
-            
-
-            <View >
-                <View style={styles.Border}>
-                    <Image
-                        source={require("../assets/category/bed-sheets.png")}
-
-                        resizeMode="contain"
-                        style={{
-                            width: 50,
-                            height: 50,
-                            marginTop: 12,
-                            marginLeft: 11,
-                        }}
-                    />
-
-                </View>
-                <Text
-                    numberOfLines={1}
-                    ellipsizeMode="tail"
-                    style={styles.ImageText}>
-                    Faucets,Water Taps and Bibb Cocks
-                </Text>
-            </View>
-            </View>
-            <View style={styles.shorts}>
                 <View>
                     <View style={styles.Border}>
                         <Image
-                            source={require("../assets/category/curtain.png")}
+                            source={require("../assets/category/bedthreads.jpg")}
 
                             resizeMode="contain"
                             style={{
@@ -155,15 +111,35 @@ const NewScreen = () => {
                         numberOfLines={1}
                         ellipsizeMode="tail"
                         style={styles.ImageText}>
-                        Drapes & Curtains
+                        Bed Threads
                     </Text>
                 </View>
-            </View>
+                <View>
+                    <View style={styles.Border}>
+                        <Image
+                            source={require("../assets/category/adairs.png")}
 
-        </View >
+                            resizeMode="contain"
+                            style={{
+                                width: 50,
+                                height: 50,
+                                marginTop: 12,
+                                marginLeft: 11,
+                            }}
+                        />
+
+                    </View>
+                    <Text
+                        numberOfLines={1}
+                        ellipsizeMode="tail"
+                        style={styles.ImageText}>
+                        Adairs
+                    </Text>
+                </View>   
+            </View>
+        </View>
 
     )
-
 }
 
 const styles = StyleSheet.create({
@@ -172,20 +148,19 @@ const styles = StyleSheet.create({
         height: 80,
         width: 80,
         margin: 15,
+
         borderColor: "#ff8c00",
         borderWidth: 2,
     },
-
     ImageText: {
         marginLeft: 10,
-        width: 100,
+        width: 90,
         fontSize: 13,
         textAlign: "center",
         justifyContent: "center",
         fontWeight: "bold",
 
     },
-
     shorts: {
         alignItems: "center",
         justifyContent: "space-between",
@@ -193,6 +168,7 @@ const styles = StyleSheet.create({
 
     },
 
+
 })
 
-export default NewScreen;
+export default Brandlist;

@@ -93,6 +93,70 @@ const Categories = ({navigation}) => {
                             Cushions
                         </Text>
                     </View>
+                    <View>
+                        <View style={{ ...styles.Border, borderRadius: 50 }}>
+                            <Image
+                                source={require("../assets/category/hook.png")}
+
+                                //resizeMode="contain"
+                                style={{
+                                    width: 50,
+                                    height: 50,
+                                    marginTop: 12,
+                                    marginLeft: 11,
+                                }}
+                            />
+
+                        </View>
+                        <Text 
+                        numberOfLines={1}
+                        ellipsizeMode="tail"
+                        style={styles.ImageText}>
+                        Hooks & Mounts
+                        </Text>
+                    </View><View>
+                        <View style={{ ...styles.Border, borderRadius: 50 }}>
+                            <Image
+                                source={require("../assets/category/tap-water.png")}
+
+                                //resizeMode="contain"
+                                style={{
+                                    width: 50,
+                                    height: 50,
+                                    marginTop: 12,
+                                    marginLeft: 11,
+                                }}
+                            />
+
+                        </View>
+                        <Text 
+                        numberOfLines={1}
+                        ellipsizeMode="tail"
+                         style={styles.ImageText}>
+                        Faucets,Water Taps and Bibb Cocks
+                        </Text>
+                    </View><View>
+                        <View style={{ ...styles.Border, borderRadius: 50 }}>
+                            <Image
+                                source={require("../assets/category/curtain.png")}
+
+                                resizeMode="contain"
+                                style={{
+                                    width: 50,
+                                    height: 50,
+                                    marginTop: 12,
+                                    marginLeft: 11,
+                                }}
+                            />
+
+                        </View>
+                        <Text 
+                        numberOfLines={1}
+                        ellipsizeMode="tail"
+                        style={styles.ImageText}>
+                        Drapes & Curtains
+                        </Text>
+                    </View>
                 </ScrollView>
 
             </View>

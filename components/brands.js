@@ -1,12 +1,14 @@
-import { StyleSheet, Text, Button, View, Image, TextInput, ScrollView } from 'react-native'
+import { StyleSheet, Text, Button, View, Image, TextInput, ScrollView,TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const Brands = () => {
+const Brands = ({navigation}) => {
     return (
         <View style={{marginVertical:15,}}>
             <View style={styles.shorts}>
                 <Text style={{ fontSize: 17, fontWeight: 'bold', marginLeft: 10, color: "midnightblue", }}>Brands</Text>
+                <TouchableOpacity onPress = { () => navigation.navigate("Brand")}>
                 <Text style={{ fontSize: 13, fontWeight: 'bold', marginRight: 10, color: "midnightblue", }}>View All</Text>
+                </TouchableOpacity>
             </View>
             <View style={{ flexDirection: "row" }}>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -93,6 +95,50 @@ const Brands = () => {
                         Sheridan
                     </Text>
                 </View>
+                <View>
+                    <View style={styles.Border}>
+                        <Image
+                            source={require("../assets/category/bedthreads.jpg")}
+
+                            resizeMode="contain"
+                            style={{
+                                width: 50,
+                                height: 50,
+                                marginTop: 12,
+                                marginLeft: 11,
+                            }}
+                        />
+
+                    </View>
+                    <Text
+                        numberOfLines={1}
+                        ellipsizeMode="tail"
+                        style={styles.ImageText}>
+                        Bed Threads
+                    </Text>
+                </View>
+                <View>
+                    <View style={styles.Border}>
+                        <Image
+                            source={require("../assets/category/adairs.png")}
+
+                            resizeMode="contain"
+                            style={{
+                                width: 50,
+                                height: 50,
+                                marginTop: 12,
+                                marginLeft: 11,
+                            }}
+                        />
+
+                    </View>
+                    <Text
+                        numberOfLines={1}
+                        ellipsizeMode="tail"
+                        style={styles.ImageText}>
+                        Adairs
+                    </Text>
+                </View>
                 </ScrollView>
             </View>
         </View>
@@ -106,7 +152,6 @@ const styles = StyleSheet.create({
         height: 80,
         width: 80,
         margin: 15,
-
         borderColor: "#ff8c00",
         borderWidth: 3,
     },

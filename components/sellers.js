@@ -1,7 +1,7 @@
-import { StyleSheet, Text, Button, View, Image, TextInput, ScrollView } from 'react-native'
+import { StyleSheet, Text, Button, View, Image, TextInput, ScrollView,TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const Sellers = () => {
+const Sellers = ({navigation}) => {
     return (
         <View style={{marginVertical:15,}}>
             <View style={styles.shorts}>
@@ -10,7 +10,9 @@ const Sellers = () => {
             </View>
             <View style={styles.shorts}>
                 <Text style={{ fontSize: 17, fontWeight: 'bold', marginLeft: 10, color: "midnightblue", }}>Sellers</Text>
+                <TouchableOpacity onPress = { () => navigation.navigate("Our")}>
                 <Text style={{ fontSize: 13, fontWeight: 'bold', marginRight: 10, color: "midnightblue", }}>View All</Text>
+                </TouchableOpacity>
             </View>
             <View style={{ flexDirection: "row" }}>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>

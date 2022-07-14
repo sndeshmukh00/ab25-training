@@ -1,13 +1,14 @@
-import { StyleSheet, Text, Button, View, Image, TextInput, ScrollView } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, Button, View, Image, TextInput, ScrollView, TouchableOpacity } from 'react-native'
+import React from 'react';
+import Drawers from '../navigation/Drawers';
 
-const Header = () => {
+const Header = ({navigation}) => {
     return (
         <View style={styles.index}>
             <View style={styles.short}>
+                <TouchableOpacity onPress={() => navigation.openDrawer() }>
                 <Image
                     source={require("../assets/icons/more.png")}
-
                     resizeMode="contain"
                     style={{
                         width: 20,
@@ -18,41 +19,41 @@ const Header = () => {
                     }
                     }
                 />
+                </TouchableOpacity>
                 <Text style={{ color: "#ff8c00", fontSize: 20, marginLeft: 20, marginTop: 13, fontWeight: "bold" }}>BULK</Text>
                 <Text style={{ color: "#fff", fontSize: 20, marginTop: 13, fontWeight: "bold", }}>BAJAAR</Text>
 
-                <Image
-                    source={require('../assets/icons/shopping-cart.png')}
-
-                    resizeMode="contain"
-                    style={{
-                        width: 20,
-                        height: 20,
-                        marginLeft: 110,
-                        marginTop: 20,
-                        // position:"absolute"
-                        tintColor: "#ff8c00",
-                    }
-                    }
-                />
-                <Image
-                    source={require('../assets/icons/heart.png')}
-
-                    resizeMode="contain"
-                    style={{
-                        width: 20,
-                        height: 20,
-                        marginLeft: 20,
-                        marginTop: 20,
-                        tintColor: "#ff8c00",
-
-                    }
-                    }
-                />
-
+                <TouchableOpacity onPress= {()=> navigation.navigate("MyC")}>
+                    <Image
+                        source={require('../assets/icons/shopping-cart.png')}
+                        resizeMode="contain"
+                        style={{
+                            width: 20,
+                            height: 20,
+                            marginLeft: 110,
+                            marginTop: 20,
+                            // position:"absolute"
+                            tintColor: "#ff8c00",
+                        }
+                        }
+                    />
+                </TouchableOpacity>
+                <TouchableOpacity onPress= {()=> navigation.navigate("MyW")}>
+                    <Image
+                        source={require('../assets/icons/heart.png')}
+                        resizeMode="contain"
+                        style={{
+                            width: 20,
+                            height: 20,
+                            marginLeft: 20,
+                            marginTop: 20,
+                            tintColor: "#ff8c00",
+                        }
+                        }
+                    />
+                </TouchableOpacity >
             </View>
             <View style={styles.form}>
-
                 <TextInput placeholder=" " />
             </View>
         </View>
