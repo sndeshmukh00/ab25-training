@@ -11,7 +11,7 @@ const Main = () =>{
         screenOptions={{
             headerShown: false
         }}> 
-        <Stack.Screen
+            <Stack.Screen
                 name='auth'
                 component={Authstack}               
             />

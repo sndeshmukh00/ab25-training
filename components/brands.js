@@ -22,7 +22,7 @@ const Brands = ({ navigation }) => {
 
         }
     }, [])
-    console.log(navigation.token)
+    // console.log(navigation.token)
     return (
         <View style={{ marginVertical: 15, }}>
             <View style={styles.shorts}>

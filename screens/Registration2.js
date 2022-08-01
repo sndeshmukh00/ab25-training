@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, } from 'react-native'
 import React, { useState ,useEffect} from 'react'
 import ModalDropdown from 'react-native-modal-dropdown'
+import { BASE_URL } from '../env'
 
 
 
@@ -165,17 +166,18 @@ const Registration2 = ({ navigation }) => {
             },
             body: JSON.stringify({
                 "company": `${company}`,
-                "representative": `${route.params.mobile}`,
-                "email": `${email}`,
-                "password": `${password}`,
-                "password_confirmation": `${confirm}`,
-                "device_token": `${DEVICE_TOKEN}`
+                "representative": `${representative}`,
+                "billing_address": `${address1}`,
+                "billing_address_two": `${address2}`,
+                "billing_state_id": `${state}`,
+                "billing_district_id": `${city}`,
+                "billing_pincode": `${pincode}`
             })
 
         })
             .then(response => response.json())
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 if (res.response === "error") {
                     return
                 } else {
@@ -185,13 +187,7 @@ const Registration2 = ({ navigation }) => {
             .catch(error => console.log(error))
 
     }
-    const getState = async() =>{
-        fetch(`${BASE_URL}v1/user/get-states`, {
-            headers:{
-                Authorization:`Bearer ${d}`
-            }
-        })
-    } 
+    
     useEffect(() => {
     //   getState()
     
@@ -263,7 +259,7 @@ const Registration2 = ({ navigation }) => {
                         style={{ fontSize: 20, marginLeft: 10, }} />
                 </View>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate("login")}>
+            <TouchableOpacity onPress={() => submitHandler()}>
                 <View style={styles.button}>
                     <Text style={styles.text1}>SUBMIT</Text>
                 </View>

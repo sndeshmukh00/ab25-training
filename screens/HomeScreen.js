@@ -12,12 +12,14 @@ import { getData } from '../asyncstorage'
 
 
 const HomeScreen = ({ navigation }) => {
+    // console.log("naviag  ==> ",login);÷
+    
      const [token,setToken] = useState("") ;
     const temp = async()=>{
         var a = await getData('token');
         //const temp = JSON.stringify(token);
         setToken(a)
-        console.log("token fromm home == ",a);
+        // console.log("token fromm home == ",a);
     }
     // var tee = JSON.parse(token)
     useEffect(() => {

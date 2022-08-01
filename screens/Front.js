@@ -1,8 +1,24 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import React from 'react'
-
+import React,{useEffect} from 'react'
+import { getData } from '../asyncstorage'
 
 const Front = ({navigation}) => {
+    
+    const getToken = async()=>{
+        var a = await getData('token');
+        if(a != null){
+            navigation.navigate("drawer")
+        }
+    }
+    useEffect(() => {
+    
+        getToken()
+
+      return () => {
+        
+      }
+    }, [])
+    
     return (
         <View style={styles.Container}>
            

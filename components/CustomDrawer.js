@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import React ,{useState,useEffect} from 'react'
 import { DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { getData } from '../asyncstorage';
+import { getData, removeData } from '../asyncstorage';
 
 
 const CustomDrawer = (props) => {
@@ -12,7 +12,12 @@ const CustomDrawer = (props) => {
         // const temp = JSON.parse(a);
         setUser(a);
 
-        console.log("token fromm drawerhkhfutdyr == ",user.name);
+        // console.log("token fromm drawerhkhfutdyr == ",user.name);
+    }
+    const logout = async() => {
+      await removeData('token')
+      await removeData('user')
+      props.navigation.navigate("front")
     }
     // var tee = JSON.parse(token)
     useEffect(() => {
@@ -238,7 +243,7 @@ const CustomDrawer = (props) => {
               marginLeft: -20,
             }}
             label="Log Out"
-            onPress={() => props.navigation.navigate("MyC")}
+            onPress={() => logout()}
           />
         </View>
       </DrawerContentScrollView>

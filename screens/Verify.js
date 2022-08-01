@@ -22,14 +22,14 @@ const Verify = ({ navigation, route }) => {
     })
       .then(response => response.json())
       .then(res => {
-        console.log(res)
+        // console.log(res)
         if (res.response === "error") {
           return
         } else {
           if (route.params.fromlogin && res.data.access_token ) {
             storeData('token',res.data.access_token)
             storeData('user',res.data)
-            navigation.navigate("drawer")
+            navigation.navigate("drawer",{login:true})
           } else {
             navigation.navigate("regis1",{mobile:route.params.mobile})
           }

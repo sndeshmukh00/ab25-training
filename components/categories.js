@@ -23,7 +23,7 @@ const Categories = ({ navigation }) => {
 
         }
     }, [])
-    console.log(navigation.token)
+    // console.log(navigation.token)
     return (
         <View style={{ alignItems: "center" }}>
             <View style={styles.shorts}>

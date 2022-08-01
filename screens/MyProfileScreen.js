@@ -1,8 +1,23 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React,{useState, useEffect} from 'react'
+import { getData } from '../asyncstorage';
 
 
 const MyProfileScreen = ({ navigation }) => {
+    const [user,setUser] = useState("") ;
+    const temp = async()=>{
+        var a = await getData('user');
+        // const temp = JSON.parse(a);
+        setUser(a);
+    }
+    // var tee = JSON.parse(token)
+    useEffect(() => {
+      temp()
+    
+      return () => {
+        
+      }
+    }, [])
     return (
         <View style={styles.container}>
             <View style={styles.first}>
@@ -18,9 +33,9 @@ const MyProfileScreen = ({ navigation }) => {
                         }
                     />
                     <View style={{ marginTop: 20, }}>
-                        <Text style={{ fontSize: 20, fontWeight: "bold", color: "#294b6f", }}>Dezavu</Text>
-                        <Text style={{ fontSize: 13, fontWeight: "bold", color: "#294b6f", marginTop: 5, }}>7898935434</Text>
-                        <Text style={{ fontSize: 13, fontWeight: "bold", color: "#294b6f", marginTop: 5, }}>Dezavu11@gmail.com</Text>
+                        <Text style={{ fontSize: 20, fontWeight: "bold", color: "#294b6f", }}>{user.name}</Text>
+                        <Text style={{ fontSize: 13, fontWeight: "bold", color: "#294b6f", marginTop: 5, }}>{user.mobile}</Text>
+                        <Text style={{ fontSize: 13, fontWeight: "bold", color: "#294b6f", marginTop: 5, }}>{user.email}</Text>
                     </View>
                 </View>
                 <TouchableOpacity onPress={() => navigation.navigate("New")}>
@@ -31,7 +46,7 @@ const MyProfileScreen = ({ navigation }) => {
             </View>
 
             <View style={{ width: "90%", marginTop: 13, }}>
-                <TouchableOpacity onPress={() => navigation.navigate("MyProf")}>
+                <TouchableOpacity onPress={() => navigation.navigate("MyProf",user)}>
                     <View style={styles.extras}>
                         <View style={{ flexDirection: 'row' }}>
                             <Image

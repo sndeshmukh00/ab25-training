@@ -30,7 +30,7 @@ const Registration1 = ({navigation,route}) => {
     })
     .then(response => response.json())
     .then(res => {
-      console.log(res)
+    //   console.log(res)
       if (res.response === "error") {
         return
       } else {

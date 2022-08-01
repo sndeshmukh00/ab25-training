@@ -17,7 +17,8 @@ const Register1 = ({navigation}) => {
   
   })
   .then(response => response.json() )
-  .then(res=>{console.log(res)
+  .then(res=>{
+    // console.log(res)
     if(res.response==="validation_error"){
       return
     }else if(res.action === "login"){
