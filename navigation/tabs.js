@@ -16,7 +16,10 @@ const Tabs = () => {
     <Tab.Navigator
       screenOptions={{
         headerTintColor: "#fff",
-        backgroundColor: "black",
+        headerStyle : {
+            backgroundColor:"#294b6f",
+        },
+        headerTitleAlign:"center",
         tabBarShowLabel: true,
         tabBarActiveTintColor: "orange",
         tabBarInactiveTintColor: "grey",
@@ -25,7 +28,7 @@ const Tabs = () => {
         }
       }}>
 
-      <Tab.Screen name="Homeee" component={Stacks} options={{
+      <Tab.Screen name="Homeee" component={HomeScreen} options={{
         headerShown: false,
         tabBarIcon: ({ focused }) => {
           return (
@@ -44,8 +47,7 @@ const Tabs = () => {
           )
         },
       }} />
-      <Tab.Screen name="My Order" component={MyOrdersScreen} options={{
-        headerStatusBarHeight: -5,
+      <Tab.Screen name="My Orders" component={MyOrdersScreen} options={{        
         tabBarIcon: ({ focused }) => {
           return (
             <View style={{ justifyContent: "center", alignItems: "center", }}>
@@ -64,7 +66,6 @@ const Tabs = () => {
         },
       }} />
       <Tab.Screen name="My Profile" component={MyProfileScreen} options={{
-        headerStatusBarHeight: -5,
         tabBarIcon: ({ focused }) => {
           return (
             <View style={{ justifyContent: "center", alignItems: "center", }}>
@@ -83,7 +84,6 @@ const Tabs = () => {
         },
       }} />
       <Tab.Screen name="Notification" component={NotifcationScreen} options={{
-        headerStatusBarHeight: -5,
         tabBarIcon: ({ focused }) => {
           return (
             <View style={{ justifyContent: "center", alignItems: "center", }}>

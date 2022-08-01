@@ -1,195 +1,98 @@
-import { StyleSheet, Text, Button, View, Image, ScrollView,TouchableOpacity } from 'react-native';
-import React from 'react';
+import { StyleSheet, Text, Button, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { BASE_URL } from '../env';
+import { FlatList } from 'react-native-gesture-handler';
 
-const Categories = ({navigation}) => {
+const Categories = ({ navigation }) => {
+    const [token, setToken] = useState("")
+    const [data, setData] = useState("")
+    const getCategories = async () => {
+        fetch(`${BASE_URL}v1/user/get-categories`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(response => response.json())
+            .then(res => {
+                setData(res.data)
+            })
+    }
+    useEffect(() => {
+        setToken(navigation.token)
+        getCategories();
+        return () => {
+
+        }
+    }, [])
+    console.log(navigation.token)
     return (
-        
-        <View>
+        <View style={{ alignItems: "center" }}>
             <View style={styles.shorts}>
-                <Text style={{ fontSize: 17, fontWeight: 'bold', marginLeft: 10, color: "midnightblue",}}>Categories</Text>
-               <TouchableOpacity onPress = { () => navigation.navigate("New")}>
-                <Text style={{ fontSize: 13, fontWeight: 'bold', marginRight: 10, color: "midnightblue",}}>View All</Text>
+                <Text style={{ fontSize: 17, fontWeight: 'bold', color: "midnightblue", }}>Categories</Text>
+                <TouchableOpacity onPress={() => navigation.navigation.navigate("New",token)}>
+                    <Text style={{ fontSize: 13, fontWeight: 'bold', color: "midnightblue", }}>View All</Text>
                 </TouchableOpacity>
             </View>
-            <View style={{ flexDirection: "row" }}>
-                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                    <View >
+            <View style={{ flexDirection: "row", margin: 10 }}>
+                {/* <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}> */}
+                <FlatList
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    numColumns={1}
+                    keyExtractor={(item) => item.id}
+                    data={data}
+                    renderItem={({ item }) => (
+
+                    <View style={styles.index}>
                         <View style={{ ...styles.Border, borderRadius: 50 }}>
                             <Image
                                 source={require("../assets/category/bed-sheets.png")}
-
                                 resizeMode="contain"
                                 style={{
                                     width: 50,
                                     height: 50,
-                                    marginTop: 12,
-                                    marginLeft: 11,
                                 }}
-                            />
-
+                                />
                         </View>
-                        <Text 
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
-                        style={styles.ImageText}>
-                            Bed Linen & Bedsheets
+                        <Text
+                            numberOfLines={1}
+                            ellipsizeMode="tail"
+                            style={styles.ImageText}>
+                            {item.name}
                         </Text>
-                    </View>
-                    <View>
-                        <View style={{ ...styles.Border, borderRadius: 50 }}>
-                            <Image
-                                source={require("../assets/category/adornment.png")}
-
-                                resizeMode="contain"
-                                style={{
-                                    width: 50,
-                                    height: 50,
-                                    marginTop: 12,
-                                    marginLeft: 11,
-                                }}
-                            />
-
-                        </View>
-                        <Text style={styles.ImageText}>
-                            Carpet & Rugs
-                        </Text>
-                    </View>
-
-                    <View>
-                        <View style={{ ...styles.Border, borderRadius: 50 }}>
-                            <Image
-                                source={require("../assets/category/air-mattress.png")}
-
-                                resizeMode="contain"
-                                style={{
-                                    width: 50,
-                                    height: 50,
-                                    marginTop: 12,
-                                    marginLeft: 11,
-                                }}
-                            />
-
-                        </View>
-                        <Text style={styles.ImageText}>
-                            Mattresses
-                        </Text>
-                    </View>
-                    <View>
-                        <View style={{ ...styles.Border, borderRadius: 50 }}>
-                            <Image
-                                source={require("../assets/category/cushions.png")}
-
-                                //resizeMode="contain"
-                                style={{
-                                    width: 50,
-                                    height: 50,
-                                    marginTop: 12,
-                                    marginLeft: 11,
-                                }}
-                            />
-
-                        </View>
-                        <Text style={styles.ImageText}>
-                            Cushions
-                        </Text>
-                    </View>
-                    <View>
-                        <View style={{ ...styles.Border, borderRadius: 50 }}>
-                            <Image
-                                source={require("../assets/category/hook.png")}
-
-                                //resizeMode="contain"
-                                style={{
-                                    width: 50,
-                                    height: 50,
-                                    marginTop: 12,
-                                    marginLeft: 11,
-                                }}
-                            />
-
-                        </View>
-                        <Text 
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
-                        style={styles.ImageText}>
-                        Hooks & Mounts
-                        </Text>
-                    </View><View>
-                        <View style={{ ...styles.Border, borderRadius: 50 }}>
-                            <Image
-                                source={require("../assets/category/tap-water.png")}
-
-                                //resizeMode="contain"
-                                style={{
-                                    width: 50,
-                                    height: 50,
-                                    marginTop: 12,
-                                    marginLeft: 11,
-                                }}
-                            />
-
-                        </View>
-                        <Text 
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
-                         style={styles.ImageText}>
-                        Faucets,Water Taps and Bibb Cocks
-                        </Text>
-                    </View><View>
-                        <View style={{ ...styles.Border, borderRadius: 50 }}>
-                            <Image
-                                source={require("../assets/category/curtain.png")}
-
-                                resizeMode="contain"
-                                style={{
-                                    width: 50,
-                                    height: 50,
-                                    marginTop: 12,
-                                    marginLeft: 11,
-                                }}
-                            />
-
-                        </View>
-                        <Text 
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
-                        style={styles.ImageText}>
-                        Drapes & Curtains
-                        </Text>
-                    </View>
-                </ScrollView>
-
+                    </View>)}
+                />
             </View>
         </View>
     )
-}  
+}
 
 const styles = StyleSheet.create({
 
     Border: {
         height: 80,
         width: 80,
-        margin: 15,
-
         borderColor: "#ff8c00",
-        borderWidth: 3,
+        borderWidth: 2,
+        alignItems: "center",
+        justifyContent: "center",
     },
-    
+
     ImageText: {
-        marginLeft: 10,
-        width: 100,
+        width: 90,
         fontSize: 13,
         textAlign: "center",
-        justifyContent: "center",
-        fontWeight:"bold" ,
+        marginTop: 5,
 
     },
-
+    index: {
+        margin: 5,
+        alignItems: "center",
+    },
     shorts: {
+        width: "95%",
         alignItems: "center",
         justifyContent: "space-between",
-        flexDirection: "row"
-
+        flexDirection: "row",
     },
 
 })

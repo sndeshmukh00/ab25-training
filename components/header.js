@@ -32,7 +32,6 @@ const Header = ({navigation}) => {
                             height: 20,
                             marginLeft: 110,
                             marginTop: 20,
-                            // position:"absolute"
                             tintColor: "#ff8c00",
                         }
                         }
@@ -75,8 +74,9 @@ const styles = StyleSheet.create({
 
     index: {
 
-        padding: 5,
-        height: 100,
+        padding: 10,
+
+        height: 120,
         width: '100%',
         alignItems: "flex-start",
         justifyContent: 'center',

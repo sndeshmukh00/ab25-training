@@ -1,15 +1,17 @@
 import { StyleSheet, Text,Button, View } from 'react-native'
 import React from 'react';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-const MyOrdersScreen = () => {
+const MyOrdersScreen = ({navigation}) => {
   return(
       <View style = {styles.container}>
-          <Text>My Orders Screen</Text>
-          <Button
-          title='CLICK HERE'
-          onPress = {() => alert('Button Clicked')}
-          />
+          <Text style = {{color:"skyblue",fontSize:18,fontWeight:"bold"}}>No Orders</Text>
+          <TouchableOpacity onPress={()=> navigation.navigate("New")}>
+          <View style={styles.button}>
+                 <Text style={styles.texts}>Continue Shopping</Text>
+          </View>
+          </TouchableOpacity>
       </View>
   )
 }
@@ -19,7 +21,22 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor:'blue',
+        padding:20,
+    },
+    button:{
+        height:40,
+        width:200,
+        backgroundColor:"#294b6f",
+        borderRadius:5,
+        alignItems:"center",
+        justifyContent:"center",
+        marginTop:10,
+    },
+    texts:{
+        color:"#fff",
+        fontWeight:"bold",
+        fontSize:17,
+
     }
 })
 

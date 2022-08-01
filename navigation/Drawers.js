@@ -14,11 +14,16 @@ const Drawer = createDrawerNavigator();
 
 const Drawers = () => {
     return (
-        <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />} initialRouteName='Home'
+        <Drawer.Navigator drawerContent={(props) => <CustomDrawer {...props} />} initialRouteName='Home' 
             screenOptions={{
                 headerShown: false,
+                drawerActiveBackgroundColor:"none",
+                
+                tintColor:"white",
+                drawerItemStyle:{       
+                }
             }}>
-            <Drawer.Screen name="Home" component={Tabs}  />
+            <Drawer.Screen name="Home" component={Stacks} options={{}} />
         </Drawer.Navigator>
     )
 }

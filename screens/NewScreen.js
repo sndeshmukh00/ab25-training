@@ -1,198 +1,85 @@
-import { StyleSheet, Text, Button, View, Image } from 'react-native'
-import React from 'react';
+import { StyleSheet, Text, Button, View, Image,FlatList } from 'react-native'
+import React,{useState,useEffect} from 'react';
+import { BASE_URL } from '../env';
 
-const NewScreen = () => {
+const NewScreen = (tokens) => {
+    const [token, setToken] = useState("")
+    const [data, setData] = useState("")
+    const getCategories = async () => {
+        fetch(`${BASE_URL}v1/user/get-categories`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(response => response.json())
+            .then(res => {
+                setData(res.data)
+            })
+    }
+    useEffect(() => {
+        setToken(tokens)
+        getCategories();
+        return () => {
+
+        }
+    }, [])
     return (
-        <View >
+        <View style={styles.container}>
+            <FlatList
+                    //horizontal={true}
+                   // showsHorizontalScrollIndicator={false}
+                    numColumns={3}
+                    keyExtractor={(item) => item.id}
+                    data={data}
+                    renderItem={({ item }) => (
             <View style={styles.shorts}>
-                <View >
-                    <View style={styles.Border}>
-                        <Image
-                            source={require("../assets/category/bed-sheets.png")}
-
-                            resizeMode="contain"
-                            style={{
-                                width: 50,
-                                height: 50,
-                                marginTop: 12,
-                                marginLeft: 11,
-                            }}
-                        />
-
-                    </View>
-                    <Text
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
-                        style={styles.ImageText}>
-                        Bed Linen & Bedsheets
-                    </Text>
-                </View>
-                <View>
-                    <View style={styles.Border}>
-                        <Image
-                            source={require("../assets/category/adornment.png")}
-
-                            resizeMode="contain"
-                            style={{
-                                width: 50,
-                                height: 50,
-                                marginTop: 12,
-                                marginLeft: 11,
-                            }}
-                        />
-
-                    </View>
-                    <Text style={styles.ImageText}>
-                        Carpet & Rugs
-                    </Text>
-                </View>
-
-                <View>
-                    <View style={styles.Border}>
-                        <Image
-                            source={require("../assets/category/air-mattress.png")}
-
-                            resizeMode="contain"
-                            style={{
-                                width: 50,
-                                height: 50,
-                                marginTop: 12,
-                                marginLeft: 11,
-                            }}
-                        />
-
-                    </View>
-                    <Text style={styles.ImageText}>
-                        Mattresses
-                    </Text>
-                </View>
-            </View>
-            <View style={styles.shorts}>
-                <View>
-                    <View style={styles.Border}>
-                        <Image
-                            source={require("../assets/category/cushions.png")}
-
-                            //resizeMode="contain"
-                            style={{
-                                width: 50,
-                                height: 50,
-                                marginTop: 12,
-                                marginLeft: 11,
-                            }}
-                        />
-
-                    </View>
-                    <Text style={styles.ImageText}>
-                        Cushions
-                    </Text>
-                </View>
-
-                <View >
-                    <View style={styles.Border}>
-                        <Image
-                            source={require("../assets/category/hook.png")}
-
-                            resizeMode="contain"
-                            style={{
-                                width: 50,
-                                height: 50,
-                                marginTop: 12,
-                                marginLeft: 11,
-                            }}
-                        />
-
-                    </View>
-                    <Text
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
-                        style={styles.ImageText}>
-                        Hooks & Mounts
-                    </Text>
-                </View>
-            
-
-            <View >
                 <View style={styles.Border}>
                     <Image
                         source={require("../assets/category/bed-sheets.png")}
-
                         resizeMode="contain"
                         style={{
                             width: 50,
                             height: 50,
-                            marginTop: 12,
-                            marginLeft: 11,
                         }}
                     />
-
                 </View>
                 <Text
-                    numberOfLines={1}
-                    ellipsizeMode="tail"
                     style={styles.ImageText}>
-                    Faucets,Water Taps and Bibb Cocks
+                    {item.name}
                 </Text>
-            </View>
-            </View>
-            <View style={styles.shorts}>
-                <View>
-                    <View style={styles.Border}>
-                        <Image
-                            source={require("../assets/category/curtain.png")}
-
-                            resizeMode="contain"
-                            style={{
-                                width: 50,
-                                height: 50,
-                                marginTop: 12,
-                                marginLeft: 11,
-                            }}
-                        />
-
-                    </View>
-                    <Text
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
-                        style={styles.ImageText}>
-                        Drapes & Curtains
-                    </Text>
-                </View>
-            </View>
-
+            </View>)}
+            />
         </View >
-
     )
-
 }
 
 const styles = StyleSheet.create({
-
+    container: {
+        flex: 1,
+        flexDirection: "row",
+        flexWrap: "wrap",
+        marginLeft: 15,
+    },
     Border: {
         height: 80,
         width: 80,
-        margin: 15,
         borderColor: "#ff8c00",
-        borderWidth: 2,
+        borderWidth: 1,
+        borderRadius: 10,
+        alignItems: "center",
+        justifyContent: "center",
     },
 
     ImageText: {
-        marginLeft: 10,
         width: 100,
-        fontSize: 13,
+        fontSize: 12,
         textAlign: "center",
-        justifyContent: "center",
-        fontWeight: "bold",
-
+        marginTop:5,
     },
 
     shorts: {
-        alignItems: "center",
-        justifyContent: "space-between",
-        flexDirection: "row"
-
+        margin: 10,
+        alignItems: "center"
     },
 
 })
-
 export default NewScreen;
