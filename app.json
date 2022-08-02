@@ -4,9 +4,9 @@
     "slug": "Newp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/category/handshake.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/category/handshake.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -20,13 +20,15 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-      "foregroundImage": "./assets/adaptive-icon.png",
+      "package" : "com.bulkbajaar",
+      "versionCode" : 1,
+     "adaptiveIcon": {
+      "foregroundImage": "./assets/category/handshake.png",
       "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/category/handshake.png"
     }
   }
 }

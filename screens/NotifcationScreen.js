@@ -5,11 +5,7 @@ import React from 'react'
 const NotifcationScreen = () => {
   return(
       <View style ={styles.container}>
-          <Text>Notification Screen</Text>
-          <Button
-          title='CLICK HERE'
-          onPress = {() => alert('Button Clicked')}
-          />
+          <Text style = {{color:"skyblue",fontSize:18,fontWeight:"bold"}}>No Notifications Here</Text>
       </View>
   )
 }
@@ -19,7 +15,7 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor:'blue'
+        
     }
 })
 
